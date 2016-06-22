@@ -1,6 +1,7 @@
-## Mandala Drawer
-## Goal:
-A construction consisting of two successive servo motors. By attaching a pen and with the right motor movement we should be able to draw on paper.  Our goal is to draw basic geometrical objects like circles square etc.
+# Mandala Drawer
+## Project Description:
+Madala drawer is able to draw  circles,square and others geometrical shapes. User can select from the keypad to draw a specific shape.
+Two servo motors make it possible to draw objects on a piece of paper.
 
 ## Components Required:
 1.	Arduino UNO
@@ -9,10 +10,12 @@ A construction consisting of two successive servo motors. By attaching a pen and
 4.	Jumper wires 
 5.	Pen
 6.	Keypad
+7.	Small spring (from any old ballpoint)
+8.	A tube of diammeter larger than the pen.
 
 
 ## Schematic Diagram
-![Schematic](https://github.com/artyar-tui/mandala-drawer/blob/master/Schematic.PNG)
+![Schematic](https://github.com/artyar-tui/mandala-drawer/blob/master/Schematic/Schematic.PNG)
 
 ## Installation
 1. Download the source code mandala.zip and library for keypad.zip this [link](https://github.com/artyar-tui/mandala-drawer)
