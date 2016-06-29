@@ -22,7 +22,6 @@ Two servo motors make it possible to draw objects on a piece of paper.
 2. Put the Keypad folder in "arduino\libraries\".
 3. Open driver.ino with the Arduino IDE and upload it to the board.
 
-# Usage
 ## Keypad buttons functions:
 1.  Draw rhombus
 2.  Move up
