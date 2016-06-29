@@ -40,7 +40,7 @@ void setup()
 }
 
 void move_h(int dist) {
-	dir=dist>0?1:-1; // Direction, -1 for left; +1 for right
+	int dir=dist>0?1:-1; // Direction, -1 for left; +1 for right
 	int serv_x = myservoH.read(); // Current horisontal position
 	for (int i=0; i != dist; dir) {
 		myservoH.write(serv_x+dir); // Move
@@ -50,7 +50,7 @@ void move_h(int dist) {
 
 void move_v(int dist)
 {
-	dir=dist>0?1:-1; // Direction, -1 for up; +1 for down
+	int dir=dist>0?1:-1; // Direction, -1 for up; +1 for down
 	int serv_y = myservoV.read(); // Current vertical position
 	for (int i=0; i != dist; dir) {
 		myservoV.write(serv_y+dir); // Move
@@ -128,8 +128,8 @@ void draw_circle(int R)
 {
 	// Procedure to draw circle of radius R
 	for (int ang=0; ang<360; ang+=1) {
-		myservoH = (R*cos(ang));
-		myservoV = (R*sin(ang));
+		myservoH.write(int(R*cos(ang)));
+		myservoV.write(int(R*sin(ang)));
 	}
 }
 
@@ -137,8 +137,8 @@ void draw_ccircle(int R)
 {
 	// Procedure to draw circle of radius R counterclockwise
 	for (int ang=360; ang>0; ang-=1) {
-		myservoH = (R*cos(ang));
-		myservoV = (R*sin(ang));
+		myservoH.write(int(R*cos(ang)));
+		myservoV.write(int(R*sin(ang)));
 	}
 }
 
