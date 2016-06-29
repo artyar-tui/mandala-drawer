@@ -17,18 +17,19 @@ Two servo motors make it possible to draw objects on a piece of paper.
 ## Schematic Diagram
 ![Schematic](https://github.com/artyar-tui/mandala-drawer/blob/master/Schematic/Schematic.PNG)
 
-## Installation
-1. Download the source code mandala.zip and library for keypad.zip this [link](https://github.com/artyar-tui/mandala-drawer)
-2. 
+## Setup
+1. Download the source code and [keypad library](http://playground.arduino.cc/Code/Keypad#Download)
+2. Put the Keypad folder in "arduino\libraries\".
+3. Open driver.ino with the Arduino IDE and upload it to the board.
 
 ## Usage
 Keypad buttons functions:
-1:  Draw rhombus
-2:  Move up
-3:  Draw square
-4:  Move left
-5:  Center
-6:  Move right
-7:  Draw circle
-8:  Move down
-9:  Draw circle counterclockwise
+1.  Draw rhombus
+2.  Move up
+3.  Draw square
+3.  Move left
+5.  Center
+6.  Move right
+7.  Draw circle
+8.  Move down
+9.  Draw circle counterclockwise
