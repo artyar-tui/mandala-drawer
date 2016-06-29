@@ -20,3 +20,15 @@ Two servo motors make it possible to draw objects on a piece of paper.
 ## Installation
 1. Download the source code mandala.zip and library for keypad.zip this [link](https://github.com/artyar-tui/mandala-drawer)
 2. 
+
+## Usage
+Keypad buttons functions:
+1:  Draw rhombus
+2:  Move up
+3:  Draw square
+4:  Move left
+5:  Center
+6:  Move right
+7:  Draw circle
+8:  Move down
+9:  Draw circle counterclockwise
