@@ -3,16 +3,20 @@
 
 Servo myservoV;
 Servo myservoH;
+
 // Movement limits
 const int left=110;
 const int right=70;
 const int top=70;
 const int down=110;
+
 // Value of Pi
 const double pi=3.1459;
+
 // Center point
 const int mid_h = 70; // horizontal
 const int mid_v = 70; // vertical
+
 // Value of delay
 const int mvdelay = 100; //movement delay
 
@@ -25,6 +29,7 @@ char keys[ROWS][COLS] = {
   {'7','8','9'},
   {'*','0','#'}
 };
+
 // Connect keypad ROW0, ROW1, ROW2 and ROW3 to these Arduino pins.
 byte rowPins[ROWS] = { 9, 8, 7, 6 };
 // Connect keypad COL0, COL1 and COL2 to these Arduino pins.
@@ -41,68 +46,73 @@ void setup()
 }
 
 // Function for horizontal movement from right to left 
-void move_r2l(int r){
+void move_r2l(int r)
+{
   int h=myservoH.read();    // Get the current horizontal position
   for(int i=0;i<=r;i++){
     myservoH.write(h+i);
     delay(mvdelay);
-    }
-  
   }
+}
 
 // Function for vertical movement from top to down
-  void move_t2d(int r){
+void move_t2d(int r)
+{
   int v=myservoV.read();    // Get the current vertical position
-  for(int i=0;i<=r;i++){
+  for(int i=0;i<=r;i++)
+  {
     myservoV.write(v+i);
     delay(mvdelay);
-    }
   }
+}
 
 // Function for diagnol vertical movement from top to down
-  void move_t2dd(int r){
+void move_t2dd(int r)
+{
   int v=myservoV.read();    // Get the current vertical position
   int h=myservoH.read();     // Get the current horizontal position
-  for(int i=0;i<=r;i++){
+  for(int i=0;i<=r;i++)
+  {
     myservoV.write(v+i);
-   
     myservoH.write(h-i*0.7);
     delay(mvdelay);
-   
     }
-  }
-
+}
 
 // Function for horizontal movement from left to right
-void move_l2r(int r){
+void move_l2r(int r)
+{
   int h=myservoH.read();  // Get the current horizontal position
-  for(int i=0;i<=r;i++){
+  for(int i=0;i<=r;i++)
+  {
     myservoH.write(h-i);
     delay(mvdelay);
-    }
   }
+}
 
 // Function for vertical movement from  down to top
-  void move_d2t(int r){
+void move_d2t(int r)
+{
   int v=myservoV.read();    // Get the current vertical position
-  for(int i=0;i<=r;i++){
+  for(int i=0;i<=r;i++)
+  {
     myservoV.write(v-i);
     delay(mvdelay);
-    }
   }
+}
 
 // Function for diagnol vertical movement from down to top
-  void move_d2td(int r){
+void move_d2td(int r)
+{
   int v=myservoV.read();    // Get the current vertical position
   int h=myservoH.read();     // Get the current horizontal position
-  for(int i=0;i<=r;i++){
+  for(int i=0;i<=r;i++)
+  {
     myservoV.write(v-i);
-
     myservoH.write(h+i*0.7);
     delay(mvdelay);
-   
-    }
   }
+}
 
   // Function for drawing Circle
 void circle(int R)
@@ -110,14 +120,14 @@ void circle(int R)
   int x,y;
   double rad;
   // Procedure to draw circle of radius R
-  for (int ang=0; ang<=360; ang++) {
+  for (int ang=0; ang<=360; ang++)
+  {
     rad=(pi/180)*ang;       // Converting degree to radians
     x=(R*cos(rad))+mid_h;   // Calculation of x cooridinates
     y=(R*sin(rad))+mid_v;   // Calculation of y cooridinates
     myservoH.write(x);
     myservoV.write(y);
-    delay(20);
-    
+    delay(mvdelay);
   }
 }
 
@@ -130,7 +140,7 @@ void rhombus(int R)
   move_t2dd(R);
   move_l2r(R);
   move_d2td(R);
-  }
+}
 
   // Function for drawing a square
 void square(int R)
@@ -141,41 +151,49 @@ void square(int R)
   move_t2d(R);
   move_l2r(R);
   move_d2t(R);
-  }
-  // Function for Lissajous Curve
-  void lissajous_curve(int R){
+}
+
+// Function for Lissajous Curve
+void lissajous_curve(int R)
+{
   int x,y;
   double rad;
   // Procedure to draw circle of radius R
-  for (int ang=0; ang<=360; ang++) {
+  for (int ang=0; ang<=360; ang++)
+  {
     rad=(pi/180)*ang;     // Converting degree to radians
     x=R*sin(rad)+mid_h;   // Calculation of x cooridinates
     y=R*cos(3*rad)+mid_v; // Calculation of y cooridinates
     myservoH.write(x);
     myservoV.write(y);
     delay(20);   
-    }
   }
+}
+  
 void loop()
 {
   char key = kpd.getKey();
  
   switch(key){
     case '1':
-    square(10);
-    break;
+      square(10);
+      break;
+    
     case '2':
-    rhombus(10);
-    break;
+      rhombus(10);
+      break;
+    
     case '3':
-    circle(30);
-    break;
-   case '4':
-   myservoV.write(mid_v);
-   myservoH.write(mid_h);
-    break;
+      circle(30);
+      break;
+    
+    case '4':
+      myservoV.write(mid_v);
+      myservoH.write(mid_h);
+      break;
+    
     case '5':
-    lissajous_curve(10);
-    break;
+      lissajous_curve(10);
+      break;
     }
   }
