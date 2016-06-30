@@ -22,12 +22,7 @@ Two servo motors make it possible to draw objects on a piece of paper.
 3. Open driver.ino with the Arduino IDE and upload it to the board.
 
 ## Keypad buttons functions:
-1.  Draw rhombus
-2.  Move up
-3.  Draw square
-3.  Move left
-5.  Center
-6.  Move right
-7.  Draw circle
-8.  Move down
-9.  Draw circle counterclockwise
+1.  Square
+2.  Rhombus
+3.  Circle
+4.  Center position
