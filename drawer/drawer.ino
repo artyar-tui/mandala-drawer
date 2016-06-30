@@ -8,12 +8,13 @@ const int left=110;
 const int right=70;
 const int top=70;
 const int down=110;
+// Value of Pi
 const double pi=3.1459;
 // Center point
 const int mid_h = 70; // horizontal
 const int mid_v = 70; // vertical
-
-const int mvdelay = 500; //movement delay
+// Value of delay
+const int mvdelay = 100; //movement delay
 
 // Define the Keymap
 const byte ROWS = 4; // Four rows
@@ -64,13 +65,10 @@ void move_r2l(int r){
   int h=myservoH.read();     // Get the current horizontal position
   for(int i=0;i<=r;i++){
     myservoV.write(v+i);
-    delay(mvdelay);
+   
     myservoH.write(h-i*0.7);
     delay(mvdelay);
-    Serial.print("Current Horizontal Position: ");
-  Serial.println(myservoH.read());
-  Serial.print("Current Vertical Position: ");
-  Serial.println(myservoV.read());
+   
     }
   }
 
@@ -99,13 +97,10 @@ void move_l2r(int r){
   int h=myservoH.read();     // Get the current horizontal position
   for(int i=0;i<=r;i++){
     myservoV.write(v-i);
-    delay(mvdelay);
+
     myservoH.write(h+i*0.7);
     delay(mvdelay);
-    Serial.print("Current Horizontal Position: ");
-  Serial.println(myservoH.read());
-  Serial.print("Current Vertical Position: ");
-  Serial.println(myservoV.read());
+   
     }
   }
 
@@ -116,21 +111,17 @@ void circle(int R)
   double rad;
   // Procedure to draw circle of radius R
   for (int ang=0; ang<=360; ang++) {
-    rad=(pi/180)*ang;
-    x=(R*cos(rad))+mid_h;
-    y=(R*sin(rad))+mid_v;
+    rad=(pi/180)*ang;       // Converting degree to radians
+    x=(R*cos(rad))+mid_h;   // Calculation of x cooridinates
+    y=(R*sin(rad))+mid_v;   // Calculation of y cooridinates
     myservoH.write(x);
     myservoV.write(y);
     delay(20);
-    Serial.print("Current Horizontal Position: ");
-  Serial.println(myservoH.read());
-  Serial.print("Current Vertical Position: ");
-  Serial.println(myservoV.read());
-  Serial.println(ang);
+    
   }
 }
 
-// Function for drawing a square  
+// Function for drawing a rhombus 
 void rhombus(int R)
 {
   myservoV.write(mid_v);
@@ -140,6 +131,8 @@ void rhombus(int R)
   move_l2r(R);
   move_d2td(R);
   }
+
+  // Function for drawing a square
 void square(int R)
 {
   myservoV.write(mid_v);
@@ -149,7 +142,20 @@ void square(int R)
   move_l2r(R);
   move_d2t(R);
   }
-
+  // Function for Lissajous Curve
+  void lissajous_curve(int R){
+  int x,y;
+  double rad;
+  // Procedure to draw circle of radius R
+  for (int ang=0; ang<=360; ang++) {
+    rad=(pi/180)*ang;     // Converting degree to radians
+    x=R*sin(rad)+mid_h;   // Calculation of x cooridinates
+    y=R*cos(3*rad)+mid_v; // Calculation of y cooridinates
+    myservoH.write(x);
+    myservoV.write(y);
+    delay(20);   
+    }
+  }
 void loop()
 {
   char key = kpd.getKey();
@@ -164,9 +170,12 @@ void loop()
     case '3':
     circle(30);
     break;
-    default:
-    myservoV.write(mid_v);
-    myservoH.write(mid_h);
-    break;  
+   case '4':
+   myservoV.write(mid_v);
+   myservoH.write(mid_h);
+    break;
+    case '5':
+    lissajous_curve(10);
+    break;
     }
   }
