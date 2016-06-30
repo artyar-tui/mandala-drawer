@@ -19,11 +19,17 @@ Two servo motors make it possible to draw objects on a piece of paper.
 ## Setup
 1. Download the source code and [keypad library](http://playground.arduino.cc/Code/Keypad#Download)
 2. Put the Keypad folder in "arduino/libraries/".
-3. Open driver.ino with the Arduino IDE and upload it to the board.
+3. Open drawer.ino with the Arduino IDE 
+4. Connect the USB cable with PC and Arduino UNO. 
+5. Wait for the mmoment while the driver is being installed.
+6. Click on 'Tools' then select 'Port' to which arduino is connected.
+7. Click on the Verify button as shown in the figure below to verify the code.
+8. Click on the Upload button as shown in the figure below to load the code to Arduino UNO.
+9. Your Mandala drawer is ready to work.
 
 ## Keypad buttons functions:
 1.  Square
 2.  Rhombus
 3.  Circle
 4.  Center position
-5. Lissajous Figure (ABC Logo)
+5.  Lissajous Figure (ABC Logo)
