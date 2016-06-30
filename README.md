@@ -26,3 +26,4 @@ Two servo motors make it possible to draw objects on a piece of paper.
 2.  Rhombus
 3.  Circle
 4.  Center position
+5. Lissajous Figure (ABC Logo)
