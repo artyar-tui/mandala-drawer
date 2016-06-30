@@ -38,3 +38,6 @@ Two servo motors make it possible to draw objects on a piece of paper.
 3.  Circle
 4.  Center position
 5.  Lissajous Figure (ABC Logo)
+
+## Hardware Setup
+![Hardware](https://github.com/artyar-tui/mandala-drawer/blob/master/Schematic/20160630_073728.jpg)
