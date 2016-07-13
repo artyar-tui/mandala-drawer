@@ -4,6 +4,9 @@
 Servo myservoV;
 Servo myservoH;
 
+// Movement step
+const int mv_step=1;
+
 // Movement limits
 const int left=110;
 const int right=70;
@@ -66,11 +69,11 @@ void move_t2d(int r)
 	}
 }
 
-// Function for diagnol vertical movement from top to down
+// Function for diagnol vertical movement from top to bottom
 void move_t2dd(int r)
 {
 	int v=myservoV.read();		// Get the current vertical position
-	int h=myservoH.read();		 // Get the current horizontal position
+	int h=myservoH.read();		// Get the current horizontal position
 	for(int i=0;i<=r;i++)
 	{
 		myservoV.write(v+i);
@@ -82,7 +85,7 @@ void move_t2dd(int r)
 // Function for horizontal movement from left to right
 void move_l2r(int r)
 {
-	int h=myservoH.read();	// Get the current horizontal position
+	int h=myservoH.read();		// Get the current horizontal position
 	for(int i=0;i<=r;i++)
 	{
 		myservoH.write(h-i);
@@ -90,7 +93,7 @@ void move_l2r(int r)
 	}
 }
 
-// Function for vertical movement from	down to top
+// Function for vertical movement from	bottom to top
 void move_d2t(int r)
 {
 	int v=myservoV.read();		// Get the current vertical position
@@ -101,11 +104,11 @@ void move_d2t(int r)
 	}
 }
 
-// Function for diagnol vertical movement from down to top
+// Function for diagnol vertical movement from bottom to top
 void move_d2td(int r)
 {
 	int v=myservoV.read();		// Get the current vertical position
-	int h=myservoH.read();		 // Get the current horizontal position
+	int h=myservoH.read();		// Get the current horizontal position
 	for(int i=0;i<=r;i++)
 	{
 		myservoV.write(v-i);
@@ -122,9 +125,9 @@ void circle(int R)
 	// Procedure to draw circle of radius R
 	for (int ang=0; ang<=360; ang++)
 	{
-		rad=(pi/180)*ang;			 // Converting degree to radians
-		x=(R*cos(rad))+mid_h;	 // Calculation of x cooridinates
-		y=(R*sin(rad))+mid_v;	 // Calculation of y cooridinates
+		rad=(pi/180)*ang;	// Converting degree to radians
+		x=(R*cos(rad))+mid_h;	// Calculation of x cooridinates
+		y=(R*sin(rad))+mid_v;	// Calculation of y cooridinates
 		myservoH.write(x);
 		myservoV.write(y);
 		delay(mvdelay);
@@ -161,9 +164,9 @@ void lissajous_curve(int R)
 	// Procedure to draw circle of radius R
 	for (int ang=0; ang<=360; ang++)
 	{
-		rad=(pi/180)*ang;		 // Converting degree to radians
-		x=R*sin(rad)+mid_h;	 // Calculation of x cooridinates
-		y=R*cos(3*rad)+mid_v; // Calculation of y cooridinates
+		rad=(pi/180)*ang;	// Converting degree to radians
+		x=R*sin(rad)+mid_h;	// Calculation of x cooridinates
+		y=R*cos(3*rad)+mid_v;	// Calculation of y cooridinates
 		myservoH.write(x);
 		myservoV.write(y);
 		delay(20);	 
@@ -181,7 +184,7 @@ void loop()
 	
 	case '2':
 		// Function for vertical movement from	down to top
-		move_d2t(10);
+		move_d2t(mv_step);
 		break;
 	
 	case '3':
@@ -190,7 +193,7 @@ void loop()
 	
 	case '4':
 		// Function for horizontal movement from right to left 
-		move_r2l(30);
+		move_r2l(mv_step);
 		break;
 	
 	case '5':
@@ -200,7 +203,7 @@ void loop()
 
 	case '6':
 		// Function for horizontal movement from left to right
-		move_l2r(10);
+		move_l2r(mv_step);
 		break;
 	
 	case '7':
@@ -208,8 +211,8 @@ void loop()
 		break;
 	
 	case '8':
-		// Function for vertical movement from top to down
-		move_t2d(1);
+		// Function for vertical movement from top to bottom
+		move_t2d(mv_step);
 		break;
 	
 	case '9':
