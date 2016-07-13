@@ -34,13 +34,13 @@ Two servo motors make it possible to draw objects on a piece of paper.
 
 ## Keypad buttons functions:
 1.  Square
-2.  Vertical movement from	down to top
+2.  Vertical movement from bottom to top
 3.  Rhombus
 4.  Horizontal movement from right to left
 5.  Center position
 6.  Horizontal movement from left to right
 7.  Circle
-8.  Vertical movement from top to down
+8.  Vertical movement from top to bottom
 9.  Lissajous Figure (ABC Logo)
 
 ## Hardware Setup
