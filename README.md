@@ -34,10 +34,14 @@ Two servo motors make it possible to draw objects on a piece of paper.
 
 ## Keypad buttons functions:
 1.  Square
-2.  Rhombus
-3.  Circle
-4.  Center position
-5.  Lissajous Figure (ABC Logo)
+2.  Vertical movement from	down to top
+3.  Rhombus
+4.  Horizontal movement from right to left
+5.  Center position
+6.  Horizontal movement from left to right
+7.  Circle
+8.  Vertical movement from top to down
+9.  Lissajous Figure (ABC Logo)
 
 ## Hardware Setup
 ![Hardware](https://github.com/artyar-tui/mandala-drawer/blob/master/Schematic/20160630_073728.jpg)
