@@ -161,7 +161,7 @@ void lissajous_curve(int R)
 {
 	int x,y;
 	double rad;
-	// Procedure to draw circle of radius R
+	// Procedure to draw Lissajous curve
 	for (int ang=0; ang<=360; ang++)
 	{
 		rad=(pi/180)*ang;	// Converting degree to radians
@@ -171,6 +171,25 @@ void lissajous_curve(int R)
 		myservoV.write(y);
 		delay(20);	 
 	}
+}
+	
+	
+void polarRose(int R)
+{
+	int x,y;
+	double rad;
+	// Procedure to draw Polar rose with R leaves R is an integer, the curve will be rose-shaped with 
+	//2k petals if R is even, and R petals if k is odd.
+	for (int ang=0; ang<=360; ang++)
+	{
+		rad=(pi/180)*ang;	// Converting degree to radians
+		x=cos(R*rad)*cos(rad)+mid_h;	// Calculation of x cooridinates
+		y=cos(R*rad)*sin(rad)+mid_v;	// Calculation of y cooridinates
+		myservoH.write(x);
+		myservoV.write(y);
+		delay(20);	 
+	}
+		
 }
 	
 void loop()
@@ -223,6 +242,7 @@ void loop()
 		break;
 	
 	case '0':
+		 polarRose(2)
 		break;
 	
 	case '#':
