@@ -41,7 +41,8 @@ Two servo motors make it possible to draw objects on a piece of paper.
 6.  Horizontal movement from left to right
 7.  Circle
 8.  Vertical movement from top to bottom
-9.  Lissajous Figure (ABC Logo)
+9.  Lissajous Curve
+0.  Polar Rose
 
 ## Hardware Setup
 ![Hardware](https://github.com/artyar-tui/mandala-drawer/blob/master/Schematic/20160630_073728.jpg)
