@@ -242,7 +242,7 @@ void loop()
 		break;
 	
 	case '0':
-		 polarRose(2)
+		polarRose(2);
 		break;
 	
 	case '#':
