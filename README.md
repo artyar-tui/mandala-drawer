@@ -8,10 +8,10 @@ Two servo motors make it possible to draw objects on a piece of paper.
 2.	Bread Board
 3.	Two servo motors
 4.	Jumper wires 
-5.	Pen
+5.	Pen/Laser
 6.	Keypad
-7.	Small spring (from any old ballpoint)
-8.	A tube of diammeter larger than the pen.
+7.	Small spring (from any old ballpoint, in case we using pen) 
+8.	A tube of diammeter larger than the pen, in case we using pen.
 
 ## Schematic Diagram
 ![Schematic](https://github.com/artyar-tui/mandala-drawer/blob/master/Schematic/Schematic.PNG)
