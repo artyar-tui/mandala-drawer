@@ -7,6 +7,9 @@ Servo myservoH;
 // Movement step
 const int mv_step=20;
 
+// Movement delay
+const int mv_delay=20;
+
 // Movement limits
 const int left=110;
 const int right=70;
@@ -29,9 +32,6 @@ const double pi=3.1459;
 // Center point
 const int mid_h = 70; // horizontal
 const int mid_v = 70; // vertical
-
-// Value of delay
-const int mvdelay = 20; //movement delay
 
 // Define the Keymap
 const byte ROWS = 4; // Four rows
@@ -64,7 +64,7 @@ void move_r2l(int r)
   int h=myservoH.read();    // Get the current horizontal position
   for(int i=0;i<=r;i++){
     myservoH.write(h+i);
-    delay(mvdelay);
+    delay(mv_delay);
   }
 }
 
@@ -75,7 +75,7 @@ void move_t2d(int r)
   for(int i=0;i<=r;i++)
   {
     myservoV.write(v+i);
-    delay(mvdelay);
+    delay(mv_delay);
   }
 }
 
@@ -88,7 +88,7 @@ void move_t2dd(int r)
   {
     myservoV.write(v+i);
     myservoH.write(h-i*0.7);
-    delay(mvdelay);
+    delay(mv_delay);
   }
 }
 
@@ -99,7 +99,7 @@ void move_l2r(int r)
   for(int i=0;i<=r;i++)
   {
     myservoH.write(h-i);
-    delay(mvdelay);
+    delay(mv_delay);
   }
 }
 
@@ -110,7 +110,7 @@ void move_d2t(int r)
   for(int i=0;i<=r;i++)
   {
     myservoV.write(v-i);
-    delay(mvdelay);
+    delay(mv_delay);
   }
 }
 
@@ -123,7 +123,7 @@ void move_d2td(int r)
   {
     myservoV.write(v-i);
     myservoH.write(h+i*0.7);
-    delay(mvdelay);
+    delay(mv_delay);
   }
 }
 
@@ -140,7 +140,7 @@ void circle(int R)
     y=(R*sin(rad))+mid_v; // Calculation of y cooridinates
     myservoH.write(x);
     myservoV.write(y);
-    delay(mvdelay);
+    delay(mv_delay);
   }
 }
 
@@ -179,7 +179,7 @@ void lissajous_curve(int R)
     y=R*cos(3*rad)+mid_v; // Calculation of y cooridinates
     myservoH.write(x);
     myservoV.write(y);
-    delay(mvdelay);
+    delay(mv_delay);
   }
 }
   
@@ -197,7 +197,7 @@ void polarRose(int R)
     y=R*cos(rose_k*rad)*sin(rad)+mid_v;  // Calculation of y cooridinates
     myservoH.write(x);
     myservoV.write(y);
-    delay(mvdelay);
+    delay(mv_delay);
   }
     
 }
