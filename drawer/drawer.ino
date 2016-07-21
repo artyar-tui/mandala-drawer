@@ -13,6 +13,16 @@ const int right=70;
 const int top=70;
 const int down=110;
 
+// Radiuses
+const int square_r=10;  // Square radius
+const int rhombus_r=10;  // Rhombus radius
+const int circle_r=10;  // Circle radius
+const int curve_r=10;  // Lissajous Curve radius
+const int rose_r=30;  // Polar Rose radius
+
+// Polar Rose k constant
+const int rose_k=4;
+
 // Value of Pi
 const double pi=3.1459;
 
@@ -169,7 +179,7 @@ void lissajous_curve(int R)
     y=R*cos(3*rad)+mid_v; // Calculation of y cooridinates
     myservoH.write(x);
     myservoV.write(y);
-    delay(20);   
+    delay(mvdelay);
   }
 }
   
@@ -179,15 +189,15 @@ void polarRose(int R)
   int x,y;
   double rad;
   // Procedure to draw Polar rose with R leaves R is an integer, the curve will be rose-shaped with 
-  //2k petals if R is even, and R petals if k is odd.
+  // 2k petals if R is even, and R petals if k is odd.
   for (int ang=0; ang<=360; ang++)
   {
     rad=(pi/180)*ang; // Converting degree to radians
-    x=R*cos(4*rad)*cos(rad)+mid_h;  // Calculation of x cooridinates
-    y=R*cos(4*rad)*sin(rad)+mid_v;  // Calculation of y cooridinates
+    x=R*cos(rose_k*rad)*cos(rad)+mid_h;  // Calculation of x cooridinates
+    y=R*cos(rose_k*rad)*sin(rad)+mid_v;  // Calculation of y cooridinates
     myservoH.write(x);
     myservoV.write(y);
-    delay(20);   
+    delay(mvdelay);
   }
     
 }
@@ -198,7 +208,7 @@ void loop()
  
   switch(key){
   case '1':
-    square(10);
+    square(square_r);
     break;
   
   case '2':
@@ -207,7 +217,7 @@ void loop()
     break;
   
   case '3':
-    rhombus(10);
+    rhombus(rhombus_r);
     break;
   
   case '4':
@@ -226,7 +236,7 @@ void loop()
     break;
   
   case '7':
-    circle(10);
+    circle(circle_r);
     break;
   
   case '8':
@@ -235,14 +245,14 @@ void loop()
     break;
   
   case '9':
-    lissajous_curve(20);
+    lissajous_curve(curve_r);
     break;
   
   case '*':
     break;
   
   case '0':
-    polarRose(30);
+    polarRose(rose_r);
     break;
   
   case '#':
